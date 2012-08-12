@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0060)http://nettuts.s3.amazonaws.com/412_ajaxCalls/DEMO/index.htm -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<TITLE>Five Ways of Making AJAX Calls with jQuery -DEMO</TITLE>
+<LINK rel="stylesheet" href="./Five Ways of Making AJAX Calls with jQuery -DEMO_files/reset.css" type="text/css" media="screen" charset="utf-8">
+<LINK rel="stylesheet" href="./Five Ways of Making AJAX Calls with jQuery -DEMO_files/main.css" type="text/css" media="screen" charset="utf-8">
+	<SCRIPT>window["_GOOG_TRANS_EXT_VER"] = "1";</SCRIPT></HEAD><BODY>
+    	<DIV id="page-wrap">
+    		<DIV id="header">
+    			<H1>Make AJAX Calls with jQuery</H1>
+    		</DIV>
+			
+			<DIV id="load-div" class="functions">
+				<SPAN>load()</SPAN>
+				<INPUT type="submit" value="load()" id="load_basic">
+				<INPUT type="submit" value="load() #DOM" id="load_dom">
+				<INPUT type="submit" value="load() GET" id="load_get">
+				<INPUT type="submit" value="load() POST" id="load_post">
+				<INPUT type="submit" value="load() callback" id="load_callback">
+			</DIV>
+			
+			<DIV id="get-json-div" class="functions">
+				<SPAN>$.getJSON()</SPAN>
+				<FORM id="getJSONForm">
+					<INPUT type="text" value="Avanti" id="q">
+					<INPUT type="submit" value="Detect Language" id="getJSON">
+				</FORM>
+			</DIV>
+			
+			<DIV id="get-script-div" class="functions">
+				<SPAN>$.getScript()</SPAN>
+				<INPUT type="submit" value="Load a Remote Script" id="getScript">
+			</DIV>
+			
+			<DIV id="get-div" class="functions">
+				<SPAN>$.get()</SPAN>
+				<INPUT type="submit" value="$.get()" id="get">
+			</DIV>
+			
+			<DIV id="post-div" class="functions">
+				<SPAN>$.post()</SPAN>
+				<INPUT type="submit" value="$.post()" id="post">
+			</DIV>
+			
+			<DIV id="result" class="functions">
+				
+			</DIV>
+		</DIV>
+		
+<SCRIPT type="text/javascript" src="./Five Ways of Making AJAX Calls with jQuery -DEMO_files/jquery.min.js"></SCRIPT>
+<SCRIPT type="text/javascript">
+	$.ajaxSetup ({
+		cache: false
+	});
+	var ajax_load = "<img class='loading' src='img/load.gif' alt='loading...' />";
+	
+//	load() functions
+	var loadUrl = "ajax/load.php";
+	$("#load_basic").click(function(){
+		$("#result").html(ajax_load).load(loadUrl);
+	});
+	
+	$("#load_dom").click(function(){
+		$("#result")
+			.html(ajax_load)
+			.load(loadUrl + " #picture");
+	});
+	
+	$("#load_get").click(function(){
+		$("#result")
+			.html(ajax_load)
+			.load(loadUrl, "language=php&version=5");
+	});
+	
+	$("#load_post").click(function(){
+		$("#result")
+			.html(ajax_load)
+			.load(loadUrl, {language: "php", version: 5});
+	});
+	
+	$("#load_callback").click(function(){
+		$("#result")
+			.html(ajax_load)
+			.load(loadUrl, null, function(responseText){
+				alert("Response:\n" + responseText);
+			});
+	});
+	
+//	$.getJSON()
+	var jsonUrl = "ajax/json.php";
+	$("#getJSONForm").submit(function(){
+		var q = $("#q").val();
+		if (q.length == 0) {
+			$("#q").focus();
+		} else {
+			$("#result").html(ajax_load);
+			$.getJSON(
+				jsonUrl,
+//				"q="+q,
+				{q: q},
+				function(json) {
+					var result = "<p>Language code is \"<strong>" + json.responseData.language + "</strong>\"</p>";
+					$("#result").html(result);
+				}
+			);
+		}
+		return false;
+	});
+	
+//	$.getScript()
+	var scriptUrl = "ajax/script.php";
+	$("#getScript").click(function(){
+		$("#result").html(ajax_load);
+		$.getScript(scriptUrl, function(){
+			$("#result").html("");
+		});
+	});
+
+//	$.get()
+	$("#get").click(function(){
+		$("#result").html(ajax_load);
+		$.get(
+			loadUrl,
+			{language: "php", version: 5},
+			function(responseText){
+				$("#result").html(responseText);
+			},
+			"html"
+		);
+	});
+	
+//	$.post()
+	$("#post").click(function(){
+		$("#result").html(ajax_load);
+		$.post(
+			loadUrl,
+			{language: "php", version: 5},
+			function(responseText){
+				$("#result").html(responseText);
+			},
+			"html"
+		);
+	});
+</SCRIPT>
+
+	
+<DIV style="display: none; " id="hiddenlpsubmitdiv"></DIV><SCRIPT>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); form.lpsubmitorig2(); } } }}catch(e){}</SCRIPT></BODY></HTML>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+  	<bean id="meetingActionItemDAO" class="mtgmgr.dao.MeetingActionItemDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+  	<bean id="meetingAgendaItemDAO" class="mtgmgr.dao.MeetingAgendaItemDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+ 	<bean id="meetingRmMeetingDAO" class="mtgmgr.dao.MeetingRmMeetingDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+ 	<bean id="meetingRmMemberDAO" class="mtgmgr.dao.MeetingRmMemberDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+ 	<bean id="meetingRoomDAO" class="mtgmgr.dao.MeetingRoomDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+  	<bean id="userLoginDAO" class="mtgmgr.dao.UserLoginDAO">
+   		<property name="sessionFactory" ref="sessionFactory"/>
+   	</bean>
+</beans>

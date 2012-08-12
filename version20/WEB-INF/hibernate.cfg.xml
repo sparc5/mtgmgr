@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">1800</property>
+        <property name="hibernate.cache.provider">org.hibernate.cache.HashtableCacheProvider</property>
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.pool_size">10</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/MeetingManager</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.default_catalog">MeetingManager</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.generate_statistics">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
+        <property name="hibernate.schemaUpdate">true</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.use_outer_join">false</property>
+        <mapping resource="hbms/MtgRmActionItem.hbm.xml" />
+        <mapping resource="hbms/MtgRmList.hbm.xml" />
+        <mapping resource="hbms/MtgRmActionItemAssignee.hbm.xml" />
+        <mapping resource="hbms/UserDirectory.hbm.xml" />
+        <mapping resource="hbms/MtgRmMembership.hbm.xml" />
+        <mapping resource="hbms/MtgRmAgendaItemComment.hbm.xml" />
+        <mapping resource="hbms/MtgRmMeeting.hbm.xml" />
+        <mapping resource="hbms/MtgRmAgendaItemAttachment.hbm.xml" />
+        <mapping resource="hbms/MtgRmAgendaItem.hbm.xml" />
+        <mapping resource="hbms/MtgRmActionItemNote.hbm.xml" />
+        <mapping resource="hbms/GroupList.hbm.xml" />
+        <mapping resource="hbms/GroupMtgRmMembership.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>

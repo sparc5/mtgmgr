@@ -1,0 +1,582 @@
+/* --------------------------------
+	Global tag styles
+   -------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Helvetica,Arial,sans-serif !important;
+}
+html {
+	overflow-y: scroll;
+}
+body {
+	width: 100%;
+	height: 100%;	/* for jQuery UI layout */
+	min-height: 100%;
+	background-color: #fff;
+	color: #000;
+	font-size: 11px;
+	font-weight: normal;
+	overflow: hidden;
+	behavior: url("csshover.htc");
+	opacity: 1 !important;
+}
+a, a:visited {
+	text-decoration: none;	/* default */
+	cursor: pointer;
+	cursor: hand;
+}
+a:hover {
+	/* override .ui-widget-header a */
+	color: #0000FF !important;
+}
+img {
+	vertical-align: text-top;
+}
+thead, th {
+	font-weight: bold;
+}
+fieldset {
+	border: 1px solid #000;
+}
+legend {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+/* --------------------------------
+	custom global styles
+   -------------------------------- */
+.height98 {
+	height: 98%;
+}
+.height100 {
+	height: 100%;
+}
+.width98 {
+	width: 98%;
+}
+.width100 {
+	width: 100%;
+}
+.hidden {
+	display: none;
+}
+.floatLeft {
+	float: left;
+	margin-left: 3px;
+}
+.floatCenter {
+	width: 100%;
+	text-align: center;
+}
+.floatRight {
+	float: right;
+	margin-right: 3px;
+}
+.alignLeft {
+	text-align: left;
+}
+div.alignCenter {
+	width: 33%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.vertical45 {
+	position: absolute;
+	top: 45%;
+}
+.redText {
+	color: #FF0000;
+	font-weight: bold;
+}
+.bold {
+	font-weight: bold;
+}
+.noBold {
+	font-weight: normal;
+}
+.noBorder {
+	border: none !important;
+}
+.noOverflow {
+	overflow: hidden;
+}
+.center {
+	text-align: center !important;
+}
+.underline {
+	text-decoration: underline !important;
+}
+.no-underline {
+	text-decoration: none !important;
+}
+table.borderCollapse {
+	border-collapse: collapse;
+}
+table.colSpanFix {
+	table-layout: fixed;	/* fix for IE colspan */
+}
+td.navIcon {
+	width: 16px;
+	padding: 0px 16px;
+}
+tr.navLink:hover {
+	background-color: #CBEEEE;
+}
+a.navText {
+	font-size: 1.1em;
+	font-weight: bold;
+}
+h3.sidePanel {
+	font-size:		1.2em;
+	background:		#F6F6F6;
+	border-bottom:	1px solid #BBB;
+	padding:		5px 15px;
+	margin:			0;
+}
+.ui-layout-reset {
+	background: transparent;
+	border: none; 
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+.ui-jqgrid-rownum {
+	width: 25px;
+	/* override .ui-jqgrid tr.ui-row td */
+	text-align: center !important;
+}
+.ui-jqgrid-btable tbody {
+	/* enable vertical scrolling only */
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+/* --------------------------------
+	specific styles
+   -------------------------------- */
+div#headerPanelWrapper {
+	position: absolute;
+	top: 6px;
+	left: 0px;
+}
+div.navPanel {
+	padding: 10px 0px;
+}
+div#personalInner tr {
+	border-top: 10px solid transparent;
+	border-bottom: 10px solid transparent;
+}
+/* Meeting room */
+div#mtgRm_wrapper div#mtgRm_name_wrapper {
+	padding: 25px 0 12px 10px;
+}
+
+/****************************************
+	Meeting action item dialog
+*****************************************/
+.textarea_container {
+	/*background-color: #EDEFF4;
+	border: 1px solid #E8E8E8;*/
+	margin: 3px auto;
+	padding: 5px;
+	text-align: center;
+	width: 98%;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.textarea_subContainer {
+	margin: 0 auto;
+	text-align: center;
+	border: none;
+	width: 100%;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+.textarea_subTitle {
+	margin: 0 auto;
+	text-align: left;
+	border: none;
+	width: 100%;
+}
+.textarea_container textarea,
+	.textarea_container p {
+	font-family: Verdana,Helvetica,Arial,sans-serif;
+	text-align: left;
+	padding: 2px;
+}
+.textarea_container abbr {
+	color: #808080;
+	border-bottom: none;
+}
+.textarea_container textarea {
+	background: #fff;
+	border: 1px solid #BDC7D8;
+	margin: 12px 0px;
+	width: 90%;
+}
+.textarea_container textarea:focus {
+	border: 1px solid #3B5998;
+}
+.textarea_container p {
+	background: transparent;
+	border: none;
+	width: 100%;
+}
+.textarea_container #button_container {
+	margin: 0px 0px 14px 0px;
+	width: 100%;
+}
+
+/* --------------------------------
+	search boxes styling
+   -------------------------------- */
+div.navPanel div.search_box_wrapper {
+	padding-right: 24px;	/* compensate for search_box padding */
+}
+div.navPanel input.search_box {
+	padding: 5px 0 5px 24px;
+	border: 1px dashed #666;
+	background: transparent url("../img/custom_icons/search.png") no-repeat 4px center;
+}
+div.navPanel input.search_box:focus {
+	border: 1px solid #666;
+}
+div#presentation div.search_box_wrapper_inner {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	width: 288px;
+	height: 32px;
+}
+div#presentation div.search_box_shadow {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+div#presentation div.search_box_wrapper_outer {
+	position: relative;
+	top: 40%;
+	width: 294px;
+	height: 38px;
+	margin-left: auto;
+	margin-right: auto;
+}
+div#presentation input.search_box {
+	position: relative;
+	top: 1px;
+	left: 1px;
+	background-color: transparent;
+	border: 1px solid #CCCCCC;
+	width: 260px;
+	padding-right: 24px;
+	font-size: 2em;
+}
+div#presentation input.search_box_bg {
+	background: transparent url("../img/custom_icons/search.png") no-repeat scroll 264px;
+}
+div#presentation input.search_box:focus {
+	border: 1px solid #666;
+}
+div#presentation div.search_results {
+	position: relative;
+	top: 30px;
+}
+
+/* --------------------------------
+	custom UI icons
+   -------------------------------- */
+span.icon-mymeetings {
+	background-image: url("../img/custom_icons/mymeetings.png") !important;
+}
+span.icon-myactionitems {
+	background-image: url("../img/custom_icons/myactionitems.png") !important;
+}
+span.icon-new {
+	background-image: url("../img/custom_icons/add_new.png") !important;
+}
+span.icon-view-all {
+	background-image: url("../img/custom_icons/view_all.png") !important;
+}
+span.icon-logoff {
+	background-image: url("../img/custom_icons/logout.png") !important;
+}
+span.icon-personal {
+	background-image: url("../img/custom_icons/personal_16.png") !important;
+}
+span.icon-presentation {
+	background-image: url("../img/custom_icons/presentation_16.png") !important;
+}
+span.icon-personal-bw {
+	background-image: url("../img/custom_icons/personal_16_bw.png") !important;
+}
+span.icon-personal-bw:hover {
+	background-image: url("../img/custom_icons/personal_16.png") !important;
+}
+span.icon-presentation-bw {
+	background-image: url("../img/custom_icons/presentation_16_bw.png") !important;
+}
+span.icon-presentation-bw:hover {
+	background-image: url("../img/custom_icons/presentation_16.png") !important;
+}
+span.icon-clear {
+	/* used both to close "north" panel of $outerLayout and search boxes */
+	background-image: url("../img/clear.png") !important;
+}
+span.icon-contact {
+	background-image: url("../img/custom_icons/contact.png") !important;
+}
+/* Meeting Room View */
+span.icon-members {
+	background-image: url("../img/custom_icons/members.png") !important;
+}
+span.icon-tor {
+	background-image: url("../img/custom_icons/tor.png") !important;
+}
+span.icon-action_items {
+	background-image: url("../img/custom_icons/action_items.png") !important;
+}
+span.icon-new_agenda_item {
+	background-image: url("../img/custom_icons/register_agenda_item.png") !important;
+}
+span.icon-new_meeting {
+	background-image: url("../img/custom_icons/new_meeting.png") !important;
+}
+span.icon-docs {
+	background-image: url("../img/custom_icons/docs.png") !important;
+}
+span.icon-save {
+	background-image: url("../img/custom_icons/save.png") !important;
+}
+
+/* --------------------------------
+	jQuery UI hacks
+   -------------------------------- */
+.ui-tabs-nav {
+	border: none !important;
+}
+
+/* --------------------------------
+	jQuery icon hacks
+   -------------------------------- */
+.ui-icon {
+	display: inline-block !important;
+	vertical-align: text-bottom;
+}
+.ui-icon-blank {
+	background-image: url("../img/ui-icon-blank_16x16.png") !important;
+}
+.ui-icon-blank-1px {
+	background-image: url("../img/ui-icon-blank_1x16.png") !important;
+	width: 1px !important;
+	height: 16px !important;
+	visibility: hidden;
+}
+.ui-icon-blank-placeholder {
+	background-image: url("../img/ui-icon-blank_1x16.png") !important;
+	width: 1px;
+}
+
+/* --------------------------------
+	jQuery UI Accordion styling
+   -------------------------------- */
+.ui-accordion .ui-accordion-header a {
+	display: inline !important;
+}
+.ui-accordion .ui-accordion-header {
+	padding: 5px;
+}
+.ui-accordion .ui-accordion-content {
+	margin : 0;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+/* --------------------------------
+	jQuery UI Dialog styling
+   -------------------------------- */
+.ui-dialog {
+	padding: 0;
+	overflow: hidden;
+}
+.ui-dialog .ui-dialog-buttonpane {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center !important;
+}
+.ui-dialog .ui-dialog-buttonpane button,
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset {
+	float: none !important;
+}
+
+/* --------------------------------
+	my custom dialog class styling
+   -------------------------------- */
+div.uiDialog {
+}
+div.mainDialog {
+	width: 80% !important;
+	height: 100% !important;
+}
+div.subDialog {
+	width: 68% !important;
+	height: 80% !important;
+}
+
+/* --------------------------------
+	jqGrid anchor styling
+   -------------------------------- */
+.ui-jqgrid a {
+	text-decoration: underline;
+}
+.ui-jqgrid a:hover {
+	color: #0000FF;
+}
+/* --------------------------------
+	jqGrid Adjustments - Word Wrap
+   -------------------------------- */
+/* for column headers */
+.ui-jqgrid .ui-jqgrid-htable th div {
+	position: relative;
+	height: auto;
+	padding-right: 4px;
+	padding-top: 2px;
+	overflow: hidden;
+	vertical-align: text-top;
+	white-space: normal !important;
+}
+/* for cell values */
+.ui-jqgrid tr.jqgrow td {
+	height: auto;
+	padding-top: 2px;
+	vertical-align: text-top;
+	white-space: normal !important;
+}
+/* --------------------------------
+	jqGrid Fix - Sort order icons
+   -------------------------------- */
+.ui-jqgrid .ui-grid-ico-sort {
+	display: inline !important;
+}
+/* --------------------------------
+	jqGrid Inconsistent border colors
+   -------------------------------- */
+.ui-jqgrid tr.ui-row td {
+	text-align: left;
+	font-weight: normal;
+	height: 22px;
+	padding: 0 2px;
+	white-space: normal !important;
+}
+
+/* --------------------------------
+	jQuery UI Tabs Adjustments
+   -------------------------------- */
+.ui-tabs-nav li {
+	white-space:	nowrap;
+}
+.ui-tabs-nav li a {
+	font-size:		1em !important;
+	padding:		4px 1.5ex 3px !important;
+}
+.ui-tabs-panel {
+	font-size:		1em !important;
+	padding:		0 1em !important;
+}
+.ui-layout-pane-west {
+	padding: 0;
+}
+.ui-layout-pane-west .ui-tabs-nav {
+	/* don't need border or rounded corners - tabs 'fill' the pane */
+	border-top:		0;
+	border-left:	0;
+	border-right:	0;
+	padding-bottom:	0 !important;
+}
+
+/* --------------------------------
+	jQuery UI Layout styles
+   -------------------------------- */
+/*** IMPORTANT - Layout container MUST have a 'height' or will be 'invisible' ***/
+.inner-layout-container	{ height: 100%; }
+.ui-layout-toggler-north, .ui-layout-toggler-south {
+	background: url("../img/dragger_ns.gif") no-repeat scroll 50% 50% transparent;
+}
+.ui-layout-toggler-west-closed, .ui-layout-toggler-east-closed {
+	background: url("../img/arrow_triangle_ew_open.png") no-repeat scroll 50% 50% transparent;
+}
+.ui-layout-toggler-west-open, .ui-layout-toggler-east-open {
+	background: url("../img/arrow_triangle_ew_close.png") no-repeat scroll 50% 50% transparent;
+}
+.ui-layout-toggler-north-closed {
+	background: url("../img/arrow_triangle_ns_open.png") no-repeat scroll 50% 50% transparent;
+}
+.ui-layout-resizer-north-closed:hover {
+	background-color: #C4E1A4;
+}
+.ui-layout-toggler-north-closed:hover {
+	background-color: #FFCC66;
+	opacity: 1;
+}
+.ui-layout-west ,
+.ui-layout-east ,
+.ui-layout-center {
+	padding:		0;
+}
+.ui-layout-east ,
+.ui-layout-content {
+	padding:		0;
+	overflow:		hidden !important; /* prevent scrollbars auto-added by Layout */
+}
+.scrolling-content {
+	height:			100%;
+	padding:		0 15px 10px; /* extra paddingTop being added by scrollpane? */
+	padding-right:	0; /* for pseudo-scrollbar on right */
+}
+.jScrollPaneTrack {
+	background: url("scrollpane/osx_track.gif") repeat-y;
+}
+.jScrollPaneDrag {
+	background: url("scrollpane/osx_drag_middle.gif") repeat-y;
+}
+.jScrollPaneDragTop {
+	background: url("scrollpane/osx_drag_top.gif") no-repeat;
+	height: 6px;
+}
+.jScrollPaneDragBottom {
+	background: url("scrollpane/osx_drag_bottom.gif") no-repeat;
+	height: 7px;
+}
+a.jScrollArrowUp {
+	height: 24px;
+	background: url("scrollpane/osx_arrow_up.png") no-repeat 0 -30px;
+}
+a.jScrollArrowUp:hover {
+	background-position: 0 0;
+}
+a.jScrollArrowDown {
+	height: 24px;
+	background: url("scrollpane/osx_arrow_down.png") no-repeat 0 -30px;
+}
+a.jScrollArrowDown:hover {
+	background-position: 0 0;
+}
+
+/* --------------------------------
+	clearfix
+   -------------------------------- */
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+.clearfix { display: inline-block; }
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }

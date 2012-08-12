@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.MtgRmAgendaItem" table="mtg_rm_agenda_item" catalog="meetingmanager">
+        <composite-id name="id" class="mtgmgr.entity.MtgRmAgendaItemId">
+            <key-property name="meetingId" type="int">
+                <column name="MEETING_ID" />
+            </key-property>
+            <key-property name="agendaNo" type="int">
+                <column name="AGENDA_NO" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="userDirectory" class="mtgmgr.entity.UserDirectory" fetch="select">
+            <column name="PRESENTER_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="mtgRmMeeting" class="mtgmgr.entity.MtgRmMeeting" update="false" insert="false" fetch="select">
+            <column name="MEETING_ID" not-null="true" />
+        </many-to-one>
+        <property name="item" type="string">
+            <column name="ITEM" length="200" not-null="true" />
+        </property>
+        <property name="staff" type="string">
+            <column name="STAFF" length="200" />
+        </property>
+        <property name="synopsis" type="string">
+            <column name="SYNOPSIS" length="4000" not-null="true" />
+        </property>
+        <property name="duration" type="time">
+            <column name="DURATION" length="8" not-null="true" />
+        </property>
+        <property name="log" type="string">
+            <column name="LOG" length="4000" />
+        </property>
+    </class>
+</hibernate-mapping>

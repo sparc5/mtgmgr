@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.GroupList" table="group_list" catalog="meetingmanager">
+        <id name="groupid" type="int">
+            <column name="GROUPID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="NAME" length="200" not-null="true" />
+        </property>
+        <set name="userDirectories" table="user_group_membership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GROUPID" not-null="true" />
+            </key>
+            <many-to-many entity-name="mtgmgr.entity.UserDirectory">
+                <column name="USERID" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="groupMtgRmMemberships" table="group_mtg_rm_membership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GROUPID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.GroupMtgRmMembership" />
+        </set>
+    </class>
+</hibernate-mapping>

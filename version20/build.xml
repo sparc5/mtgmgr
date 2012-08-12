@@ -1,0 +1,214 @@
+<project name="Meeting Manager" default="all" basedir="WEB-INF" >
+    <property environment="env"/>
+
+    <property name="project.title"    value="Meeting Manager"/>
+    <property name="project.file"     value="mtgmgr"/>
+    <property name="tomcat.home"      value="${env.CATALINA_HOME}"/>
+    <property name="servlet.jar"      value="${tomcat.home}/lib/servlet-api.jar"/>
+    <property name="jsp.jar"          value="${tomcat.home}/lib/jsp-api.jar"/>
+    <property name="deploy.dir"       value="${tomcat.home}/webapps"/>
+	<property name="jar.file.name"    value="${project.file}.jar"/>
+    <property name="war.file.name"    value="${project.file}.war"/>
+	<property name="web-inf.dir"      value="."/>
+    <property name="src.dir"          value="src"/>
+	<property name="build.dir"        value="classes"/>
+    <property name="lib.dir"          value="lib"/>
+    <property name="build.compiler"   value="modern"/>
+
+	<path id="class.path">
+		<fileset dir="lib">
+		  <include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${tomcat.home}">
+		  <include name="**/*.jar"/>
+		</fileset>
+        <pathelement path="${build.dir}"/>
+        <pathelement path="${src.dir}"/>
+        <pathelement path="${servlet.jar}"/>
+        <pathelement path="${jsp.jar}"/>
+	</path>
+
+	<path id="compile.classpath">
+		<pathelement path ="lib/commons-beanutils-1.8.0.jar"/>
+		<pathelement path ="lib/commons-digester-1.8.jar"/>
+		<pathelement path ="lib/struts2-core-2.1.8.1.jar"/>
+		<pathelement path ="${tomcat.home}/servlet-api.jar"/>
+		<pathelement path ="${tomcat.home}/catalina-ant.jar"/>
+		<pathelement path ="classes"/>
+		<pathelement path ="${class.path}"/>
+	</path>
+
+	<target name="resources">
+		<copy todir="classes" includeEmptyDirs="no">
+			<fileset dir="src/java">
+			<patternset>
+				<include name="**/*.conf"/>
+				<include name="**/*.properties"/>
+				<include name="**/*.xml"/>
+			</patternset>
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="compile">
+		<javac srcdir="${src.dir}" destdir="${build.dir}"
+			   source="1.5" target="1.5"
+			   classpathref="class.path" deprecation="on"
+			   debug="true" debuglevel="lines,vars,source"
+			   optimize="true" includeantruntime="false">
+<!--			<compilerarg line="-Xlint:unchecked"/>-->
+			<classpath refid="class.path"/>
+		</javac>
+	</target>
+
+	<target name="clean" description="Prepare for clean build">
+<!--	<delete dir="classes"/>-->
+	  <mkdir  dir="classes"/>
+	</target>
+
+    <target name="war">
+        <war warfile="${war.file.name}" webxml="web.xml">
+             <fileset dir="../" includes="**/*.*" excludes="*.war, **/*.nbattrs, web.xml, **/WEB-INF/**/*.*, **/project-files/**/*.*"/>
+             <webinf  dir="./" includes="**/*" excludes="web.xml, **/*.jar, **/*.class"/>
+             <lib     dir="${lib.dir}"/>
+             <classes dir="${build.dir}"/>
+             <classes dir="${src.dir}">
+				<include name="**/*.properties"/>				
+             </classes>
+        </war>
+    </target>
+
+    <target name="deploy">
+        <copy todir="${deploy.dir}">
+            <fileset dir="../" includes="${war.file.name}"/>
+        </copy>
+    </target>
+
+	<target name="javadoc"
+	 description="Generate JavaDoc API docs">
+		<delete dir="./doc/api"/>
+		<mkdir dir="./doc/api"/>
+		<javadoc sourcepath="./src/java"
+			destdir="./doc/api"
+			classpath="${servlet.jar}:${jdbc20ext.jar}"
+			packagenames="*"
+			author="true"
+			private="true"
+			version="true"
+			windowtitle="${project.title} API Documentation"
+			doctitle="&lt;h1&gt;${project.title}
+					  Documentation (Version ${project.version})&lt;/h1&gt;"
+			bottom="Copyright &#169; 2010">
+			<classpath refid="compile.classpath"/>
+		</javadoc>
+	</target>
+
+	<target name="project" depends="clean,compile"/>
+	<target name="dist"
+		description="Create binary distribution">
+	  <mkdir
+		dir="${distpath.project}"/>
+	  <jar
+		jarfile="${distpath.project}/${project.distname}.jar"
+		basedir="./classes"/>
+	  <copy
+		file="${distpath.project}/${project.distname}.jar"
+		todir="${distpath.project}"/>
+	  <war
+		basedir="../"
+		warfile="${distpath.project}/${project.distname}.war"
+		webxml="web.xml">
+		<exclude name="${distpath.project}/${project.distname}.war"/>
+	   </war>
+	</target>
+
+	<target name="schemaupdate">
+		<taskdef name="schemaupdate"
+			classname="net.sf.hibernate.tool.hbm2ddl.SchemaUpdateTask"
+			classpathref="classpath">
+			<schemaupdate properties="${build.dir}/hibernate.properties"
+				quiet="no">
+			<fileset dir="hbms">
+				<include name="**/*.hbm.xml"/>
+			</fileset>
+			</schemaupdate>
+		</taskdef>
+	</target>
+
+	<target name="schemaexport" depends="compile"
+		description="Exports a generated schema to DB and file">
+		<hibernatetool>
+			<hbm2java jdk5="true" destdir="${src.dir}/java"/>
+			<hbm2ddl
+				drop="true"
+				create="true"
+				export="true"
+				outputfilename="mtgmgr-ddl.sql"
+				delimiter=";"
+				format="true"/>
+		</hibernatetool>
+	</target>
+
+	<taskdef name="hibernatetool"
+		classname="org.hibernate.tool.ant.HibernateToolTask"
+		classpathref="class.path"/>
+	<target name="hbms"
+         description="generate hibernate classes">
+		<hibernatetool>
+			<classpath path="${class.path}"/>
+			<hbm2cfgxml destdir="${web-inf.dir}"/>
+			<jdbcconfiguration
+				configurationfile="${web-inf.dir}/hibernate.cfg.xml"
+				packagename="hbms"
+				detectmanytomany="true"
+				detectoptimisticlock="true"
+			/>
+		</hibernatetool>
+
+		<hibernatetool>
+			<classpath path="${class.path}"/>
+			<jdbcconfiguration
+				configurationfile="${web-inf.dir}/hibernate.cfg.xml"
+				packagename="mtgmgr.entity"
+				detectmanytomany="true"
+				detectoptimisticlock="true"
+			/>
+			<hbm2hbmxml destdir="${build.dir}/hbms"/>
+		</hibernatetool>
+		<move todir="${build.dir}/hbms">
+			<fileset dir="${build.dir}/hbms/mtgmgr/entity"/>
+		</move>
+		<delete dir="${build.dir}/hbms/mtgmgr"
+			quiet="yes"
+			includeemptydirs="true"/>
+
+		<hibernatetool>
+			<classpath path="${class.path}"/>
+			<jdbcconfiguration
+				configurationfile="${web-inf.dir}/hibernate.cfg.xml"
+				packagename="mtgmgr.entity"
+				detectmanytomany="true"
+				detectoptimisticlock="true"
+			/>
+			<hbm2java jdk5="true" destdir="${src.dir}/java"/>
+		</hibernatetool>
+	</target>
+
+	<taskdef name="hibernatedoclet"
+		classname="xdoclet.modules.hibernate.HibernateDocletTask"
+		classpathref="class.path"/>
+	<target name="xdoclet">
+		<hibernatedoclet
+			destdir="mappings/"
+			excludedtags="@version,@author,@todo"
+			force="true"
+			mergedir="merge/">
+			<fileset dir="src">
+				<include name="${src.dir}/java/mtgmgr/*.java"/>
+			</fileset>
+			<hibernate version="2.0"/>
+		</hibernatedoclet>
+	</target>
+
+	<target name="all" depends="compile"/>
+</project>

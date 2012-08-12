@@ -1,0 +1,93 @@
+<mockup version="1.0" skin="sketch" measuredW="916" measuredH="400" mockupW="846" mockupH="380">
+  <controls>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::TitleWindow" x="60" y="10" w="420" h="379" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <close>true</close>
+        <text>MeetingRoomA</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="75" y="42" w="35" h="25" measuredW="35" measuredH="25" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ToR%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::TextArea" x="137" y="42" w="328" h="82" measuredW="200" measuredH="140" zOrder="2" locked="false" isInGroup="-1"/>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Link" x="75" y="124" w="-1" h="-1" measuredW="59" measuredH="25" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Members</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::Accordion" x="75" y="149" w="390" h="152" measuredW="197" measuredH="164" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Upcoming%20meetings%20%28%5BAdd%20new%5D%29%0APast%20meetings</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::DataGrid" x="75" y="178" w="390" h="95" measuredW="333" measuredH="94" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <borderStyle>none</borderStyle>
+        <rowHeight>16</rowHeight>
+        <selectedIndex>0</selectedIndex>
+        <size>13</size>
+        <text>No%2CName%2CDate%2CTime%2CVenue%0A01%2C%5BMeetingB%5D%2C01/02/2001%2C1100%2CVenueB%0A02%2C%5BMeetingC%5D%2C01/03/2001%2C1200%2CVenueC%0A03%2C%5BMeetingD%5D%2C01/04/2001%2C1300%2CVenueD</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::Link" x="75" y="307" w="-1" h="-1" measuredW="153" measuredH="25" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Meeting%20room%20repository</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::TitleWindow" x="486" y="11" w="420" h="379" measuredW="450" measuredH="400" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <close>true</close>
+        <text>MeetingRoomA</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::Label" x="501" y="43" w="35" h="25" measuredW="35" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>ToR%3A</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::TextArea" x="563" y="43" w="328" h="82" measuredW="200" measuredH="140" zOrder="9" locked="false" isInGroup="-1"/>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Link" x="501" y="125" w="-1" h="-1" measuredW="59" measuredH="25" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Members</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::Accordion" x="501" y="150" w="390" h="152" measuredW="197" measuredH="164" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <selectedIndex>1</selectedIndex>
+        <text>Upcoming%20meetings%20%28%5BAdd%20new%5D%29%0APast%20meetings</text>
+      </controlProperties>
+    </control>
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::DataGrid" x="501" y="206" w="390" h="95" measuredW="334" measuredH="50" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bold>true</bold>
+        <borderStyle>none</borderStyle>
+        <hLines>false</hLines>
+        <rowHeight>16</rowHeight>
+        <selectedIndex>0</selectedIndex>
+        <size>13</size>
+        <text>No%2CName%2CDate%2CTime%2CVenue%0A01%2C%5BMeetingA%5D%2C01/01/2001%2C1100%2CVenueA</text>
+        <verticalScrollbar>true</verticalScrollbar>
+        <vLines>true</vLines>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Link" x="501" y="308" w="-1" h="-1" measuredW="153" measuredH="25" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Meeting%20room%20repository</text>
+      </controlProperties>
+    </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::Button" x="215" y="332" w="-1" h="-1" measuredW="109" measuredH="28" zOrder="14" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Close%20Window</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::Button" x="641" y="332" w="-1" h="-1" measuredW="109" measuredH="28" zOrder="15" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Close%20Window</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

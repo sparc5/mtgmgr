@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.MtgRmMeeting" table="mtg_rm_meeting" catalog="meetingmanager">
+        <id name="meetingId" type="int">
+            <column name="MEETING_ID" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="mtgRmList" class="mtgmgr.entity.MtgRmList" fetch="select">
+            <column name="MTG_RM_ID" not-null="true" />
+        </many-to-one>
+        <property name="name" type="string">
+            <column name="NAME" length="200" not-null="true" />
+        </property>
+        <property name="date" type="date">
+            <column name="DATE" length="10" not-null="true" />
+        </property>
+        <property name="startTime" type="time">
+            <column name="START_TIME" length="8" not-null="true" />
+        </property>
+        <property name="endTime" type="time">
+            <column name="END_TIME" length="8" not-null="true" />
+        </property>
+        <property name="venue" type="string">
+            <column name="VENUE" length="50" not-null="true" />
+        </property>
+        <property name="lastUpdated" type="timestamp">
+            <column name="LAST_UPDATED" length="19" not-null="true" />
+        </property>
+        <set name="mtgRmAgendaItems" table="mtg_rm_agenda_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MEETING_ID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmAgendaItem" />
+        </set>
+        <set name="mtgRmAgendaItemAttachments" table="mtg_rm_agenda_item_attachment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MEETING_ID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmAgendaItemAttachment" />
+        </set>
+        <set name="mtgRmAgendaItemComments" table="mtg_rm_agenda_item_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MEETING_ID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmAgendaItemComment" />
+        </set>
+        <set name="mtgRmActionItems" table="mtg_rm_action_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="MEETING_ID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmActionItem" />
+        </set>
+    </class>
+</hibernate-mapping>

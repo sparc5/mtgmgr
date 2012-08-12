@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.UserDirectory" table="user_directory" catalog="meetingmanager">
+        <id name="userid" type="int">
+            <column name="USERID" />
+            <generator class="assigned" />
+        </id>
+        <property name="username" type="string">
+            <column name="USERNAME" length="200" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="50" not-null="true" />
+        </property>
+        <property name="emailAddress" type="string">
+            <column name="EMAIL_ADDRESS" length="200" />
+        </property>
+        <property name="isAdmin" type="boolean">
+            <column name="IS_ADMIN" not-null="true" />
+        </property>
+        <set name="mtgRmMemberships" table="mtg_rm_membership" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmMembership" />
+        </set>
+        <set name="mtgRmAgendaItemComments" table="mtg_rm_agenda_item_comment" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmAgendaItemComment" />
+        </set>
+        <set name="mtgRmAgendaItems" table="mtg_rm_agenda_item" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="PRESENTER_ID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmAgendaItem" />
+        </set>
+        <set name="mtgRmActionItemNotes" table="mtg_rm_action_item_note" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmActionItemNote" />
+        </set>
+        <set name="mtgRmActionItemAssignees" table="mtg_rm_action_item_assignee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <one-to-many class="mtgmgr.entity.MtgRmActionItemAssignee" />
+        </set>
+        <set name="groupLists" table="user_group_membership" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="USERID" not-null="true" />
+            </key>
+            <many-to-many entity-name="mtgmgr.entity.GroupList">
+                <column name="GROUPID" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

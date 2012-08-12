@@ -1,0 +1,47 @@
+<style>
+.msg_list {
+	margin: 0;
+	padding: 0;
+	width:  400px;
+	height: 320px;
+}
+.msg_list .msg_head_wrapper {
+	margin: 5px auto;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js"></script>
+<LINK rel="stylesheet" type="text/css" href="css/overcast/jquery-ui-1.8.4.custom.css">
+<script>
+$(document).ready(function() {
+	$("div.msg_list div.msg_body").hide();
+	$("span.ui-icon").css("display", "inline-block");
+	$("div.msg_list div.msg_head").live("click", function() {
+		var icon = $("span.ui-icon", this);
+		$(this).next(".msg_body").slideToggle("fast", function() {
+			icon.toggleClass("ui-icon-triangle-1-s ui-icon-triangle-1-e");
+		});
+		return false;
+	});
+});
+</script>
+<div class="msg_list">
+	<div class="ui-widget ui-widget-content msg_head_wrapper">
+		<div class="ui-widget ui-widget-header msg_head">
+			<p style="padding: 0.5em 0.5em 0.5em 0.2em;"><span class="ui-icon ui-icon-triangle-1-e"></span><a>Header-1</a></p>
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content msg_head_wrapper">
+		<div class="ui-widget ui-widget-header msg_head">
+			<p style="padding: 0.5em 0.5em 0.5em 0.2em;"><span class="ui-icon ui-icon-triangle-1-e"></span><a>Header-2</a></p>
+		</div>
+		<div class="msg_body">
+	<p style="padding: 11px 15px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</div>
+	</div>
+	<div class="ui-widget ui-widget-content msg_head_wrapper">
+		<div class="ui-widget ui-widget-header msg_head">
+			<p style="padding: 0.5em 0.5em 0.5em 0.2em;"><span class="ui-icon ui-icon-triangle-1-e"></span><a>Header-3</a></p>
+		</div>
+	</div>
+</div>

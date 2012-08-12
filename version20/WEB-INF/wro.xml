@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups xmlns="http://www.isdc.ro/wro"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.isdc.ro/wro wro.xsd">
+  <group name="jQuery-core">
+    <js>/js/jquery-1.4.2.min.js</js>
+  </group>
+  <group name="common">
+    <css>/css/common.css</css>
+	<group-ref>jQuery-core</group-ref>
+	<js>/js/common.js</js>
+  </group>
+  <group name="form">
+    <js>/js/jquery.pseudofocus.js</js>
+  </group>
+
+  <group name="login">
+	<group-ref>common</group-ref>
+	<css>/css/login.css</css>
+	<group-ref>form</group-ref>
+  </group>
+  <group name="main">
+	<group-ref>common</group-ref>
+	<css>/css/tiles.main.css</css>
+	<group-ref>jQuery-core</group-ref>
+  </group>
+  <group name="admin">
+	<group-ref>common</group-ref>
+  </group>
+</groups>

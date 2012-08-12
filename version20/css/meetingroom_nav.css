@@ -1,0 +1,46 @@
+#dock
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 22px;
+	float: left;
+}
+#dock ul, #dock ul li
+{
+	float: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+#dock ul li
+{
+	position: relative;
+	padding: 2px 6px;
+	border-top: none;
+	border-bottom: none;
+}
+#dock ul li.last
+{
+	position: relative;
+	padding: 2px 0 2px 6px;
+	border-top: none;
+	border-bottom: none;
+}
+#dock ul li a
+{
+	display: block;
+	line-height: 18px;
+	padding: 0 5px;
+	text-decoration: none;
+	float: right;
+}
+#dock ul li a:hover, #dock ul li.selected a
+{
+	border-bottom: 2px solid #FF9C08;
+	color: #FFFFFF;
+}
+#dock ul li.selected a
+{
+	font-weight: bold;
+}

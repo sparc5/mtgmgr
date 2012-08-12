@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.MtgRmActionItemNote" table="mtg_rm_action_item_note" catalog="meetingmanager">
+        <composite-id name="id" class="mtgmgr.entity.MtgRmActionItemNoteId">
+            <key-property name="actionItemId" type="int">
+                <column name="ACTION_ITEM_ID" />
+            </key-property>
+            <key-property name="commentNo" type="int">
+                <column name="COMMENT_NO" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="mtgRmActionItem" class="mtgmgr.entity.MtgRmActionItem" update="false" insert="false" fetch="select">
+            <column name="ACTION_ITEM_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userDirectory" class="mtgmgr.entity.UserDirectory" fetch="select">
+            <column name="USERID" not-null="true" />
+        </many-to-one>
+        <property name="datetime" type="timestamp">
+            <column name="DATETIME" length="19" not-null="true" />
+        </property>
+        <property name="content" type="string">
+            <column name="CONTENT" length="16777215" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

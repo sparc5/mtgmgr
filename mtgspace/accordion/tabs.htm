@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>jQuery Tools standalone demo</title>
+
+<script src="js/jquery.js"></script>
+<script src="js/tabs.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/global.css"/>
+</head>
+
+<body>
+<ul class="tabs">
+	<li><a href="#">Summary</a></li>
+	<li><a href="#">Pre-Meeting</a></li>
+	<li><a href="#">Meeting</a></li>
+	<li><a href="#">Post-Meeting</a></li>
+</ul>
+
+<div class="panes">
+	<div>
+		Details<br>
+		<ul>
+		<table style="width:75%;">
+			<tr>
+				<td style="width:38%;"><li>Name:</li></td>
+				<td>XXX</td>
+			</tr>
+			<tr>
+				<td style="width:38%;"><li>Date:</li></td>
+				<td>XXX</td>
+			</tr>
+		</table>
+		</ul>
+	</div>
+
+
+	<div>pane 2 content</div>
+	<div>pane 3 content</div>
+</div>
+
+<script>
+$(function() {
+	$("ul.tabs").tabs("div.panes > div");
+});
+</script>
+</body>
+</html>

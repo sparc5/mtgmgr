@@ -1,0 +1,75 @@
+body {
+	background-color: #EEEEEE;
+}
+
+/****************************************
+	Login form header div
+*****************************************/
+div#header {
+	text-align: center;
+	vertical-align: middle;
+}
+div#header h1 {
+	line-height: 40px;
+}
+
+/****************************************
+	Login form error msg div
+*****************************************/
+div.errors {
+	background-color: #FEBFBF;
+	color: #f7421a;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+	border-top: 2px solid #B20000;
+	border-bottom: 2px solid #B20000;
+}
+div.errors p {
+	padding-bottom: 4px;
+	border-bottom: 1px solid #FE8080;
+}
+div.errors ul.errorMessage {
+	padding-left: 28px;
+}
+div.errors ul li {
+	color: #f7421a;
+	list-style-type: square;
+}
+
+/****************************************
+	Login form element styling
+*****************************************/
+form#login_form {
+	font-size: 14px;
+	padding-top: 14px;
+}
+form#login_form fieldset {
+	padding-bottom: 7px;
+	border: none;
+}
+form#login_form p {
+	margin: 0 10px 0 0;
+}
+form#login_form label {
+	float: left;
+	padding: 8px;
+	font-weight: bold;
+}
+form#login_form input.text_input {
+	width: 69%;
+	float: right;
+	font-size: 1.5em;
+	border: 1px solid #B2B2B2;
+}
+form#login_form input.text_input:focus {
+    border: 1px solid #757575;
+}
+form#login_form div#button_div {
+	text-align: center;
+	padding: 7px 0;
+	/* duplicate border shared with div.container */
+	border-left: none;
+	border-bottom: none;
+	border-right: none;
+}

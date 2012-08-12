@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+    <constant name="struts.convention.result.path" value="/jsp" />
+    <constant name="struts.convention.action.packages" value="mtgmgr.action" />
+	<constant name="struts.date.format" value="dd/MM/yyyy" />
+
+	<package name="mtgmgr" namespace="" extends="struts-default, hibernate-default, json-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+		</result-types>
+		<action name="logout" class="mtgmgr.action.UserLogoutAction">
+			<result name="success" type="redirect">/</result>
+		</action>
+		<action name="login" class="mtgmgr.action.UserLoginAction">
+			<result name="success">jsp/main.jsp</result>
+            <result name="input">/</result>
+            <result name="error">/</result>
+        </action>
+
+		<action name="json_*_Meeting*" class="mtgmgr.action.Meeting{2}Action" method="{1}">
+			<result name="login" type="redirect">/</result>
+			<result name="success" type="chain">jsonGrid</result>
+		</action>
+		<action name="jsonGrid" class="mtgmgr.action.JSONGridAction">
+			<result name="success" type="json"/>
+		</action>
+
+        <action name="_Meeting*_*" class="mtgmgr.action.Meeting{1}Action" method="{2}">
+			<result name="login" type="redirect">/</result>
+			<result name="success">jsp/Meeting{1}/{2}.jsp</result>
+		</action>
+
+        <action name="__*">
+			<result name="success">jsp/{1}.jsp</result>
+		</action>
+        <action name="*_*">
+			<result name="success">jsp/{1}/{2}.jsp</result>
+		</action>
+
+		<action name="*"><result/></action>
+	</package>
+</struts>

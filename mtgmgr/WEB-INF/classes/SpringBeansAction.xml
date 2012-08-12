@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="meetingActionItemAction" class="mtgmgr.action.MeetingActionItemAction">
+		<property name="meetingActionItemDAO" ref="meetingActionItemDAO"/>
+	</bean>
+	<bean id="meetingAgendaItemAction" class="mtgmgr.action.MeetingAgendaItemAction">
+		<property name="meetingAgendaItemDAO" ref="meetingAgendaItemDAO"/>
+	</bean>
+	<bean id="meetingRmMeetingAction" class="mtgmgr.action.MeetingRmMeetingAction">
+		<property name="meetingRmMeetingDAO" ref="meetingRmMeetingDAO"/>
+	</bean>
+	<bean id="meetingRmMemberAction" class="mtgmgr.action.MeetingRmMemberAction">
+		<property name="meetingRmMemberDAO" ref="meetingRmMemberDAO"/>
+	</bean>
+	<bean id="meetingRoomAction" class="mtgmgr.action.MeetingRoomAction">
+		<property name="meetingRoomDAO" ref="meetingRoomDAO"/>
+		<property name="meetingActionItemDAO" ref="meetingActionItemDAO"/>
+		<property name="meetingRmMemberDAO" ref="meetingRmMemberDAO"/>
+		<property name="userLoginDAO" ref="userLoginDAO"/>
+	</bean>
+	<bean id="userLoginAction" class="mtgmgr.action.UserLoginAction">
+		<property name="userLoginDAO" ref="userLoginDAO"/>
+	</bean>
+</beans>

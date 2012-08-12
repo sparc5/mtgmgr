@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<!-- Main overview page -->
+    <definition name=".main.layout" template="/jsp/overview.jsp">
+		<put-attribute name="header" value="/jsp/header.jsp" />
+		<put-attribute name="content" value="" />
+    </definition>
+	<!-- myMeetings tabbedpanel -->
+	 <definition name=".main.myMeetingRooms" template="/jsp/main/template.jsp">
+		<put-attribute name="myMeetings" value="/jsp/main/myMeetings.jsp" />
+		<put-attribute name="subscribedMeetings" value="/jsp/main/subscribedMeetings.jsp" />
+	 </definition>
+</tiles-definitions>

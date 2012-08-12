@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Sep 3, 2010 12:56:45 PM by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="mtgmgr.entity.MtgRmMembership" table="mtg_rm_membership" catalog="meetingmanager">
+        <composite-id name="id" class="mtgmgr.entity.MtgRmMembershipId">
+            <key-property name="userid" type="int">
+                <column name="USERID" />
+            </key-property>
+            <key-property name="mtgRmId" type="int">
+                <column name="MTG_RM_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="mtgRmList" class="mtgmgr.entity.MtgRmList" update="false" insert="false" fetch="select">
+            <column name="MTG_RM_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="userDirectory" class="mtgmgr.entity.UserDirectory" update="false" insert="false" fetch="select">
+            <column name="USERID" not-null="true" />
+        </many-to-one>
+        <property name="role" type="string">
+            <column name="ROLE" length="12" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
